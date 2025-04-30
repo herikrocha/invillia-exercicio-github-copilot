@@ -20,9 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
-        // Generate participants list
+        // Generate participants list with styled components
         const participantsList = details.participants.length
-          ? `<ul>${details.participants.map(participant => `<li>${participant}</li>`).join("")}</ul>`
+          ? `<div class="participants-container">
+               ${details.participants.map(participant => `
+                 <div class="participant">${participant}</div>
+               `).join("")}
+             </div>`
           : "<p>No participants yet.</p>";
 
         activityCard.innerHTML = `
